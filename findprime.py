@@ -31,25 +31,29 @@ print(f"Not prime count: {len(notprime)}")
 minnum = int(rng[0])
 searching = True
 while searching:
+
     search = input("Search (or .quit to quit): ")
     try:
-        int(search)
-    except:
-        if search == ".quit":
-            searching = False
-            break
-        else:
-            print("Invalid search key.")
-    else:
         try:
-            intsea = int(search)
-            index = prime.index(intsea)
-            print(f"{search} is {str(index)}(th) prime.")
+            int(search)
         except:
-            intsea = int(search)
-            notprime.index(intsea)
-            print(f"{search} is not a prime.")
-            for i in prime:
-                if intsea % i == 0:
-                    print(f"{intsea} divides into {i}. ({intsea} / {i} = {intsea / i})")
+            if search == ".quit":
+                searching = False
+                break
+            else:
+                print("Invalid search key.")
+        else:
+            try:
+                intsea = int(search)
+                index = prime.index(intsea)
+                print(f"{search} is {str(index)}(th) prime.")
+            except:
+                intsea = int(search)
+                notprime.index(intsea)
+                print(f"{search} is not a prime.")
+                for i in prime:
+                    if intsea % i == 0:
+                        print(f"{intsea} divides into {i}. ({intsea} / {i} = {intsea / i})")
+    except:
+        print("Error: Number out of range")
                     
