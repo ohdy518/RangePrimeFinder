@@ -1,4 +1,5 @@
 minnum = int(input("Range minimum value: "))
+chminnum = minnum
 maxnum = int(input("Range maximum value: ")) + 1
 prime = [
     ""
@@ -27,7 +28,7 @@ print(f"Prime number count: {len(prime)}")
 print("-" * 10)
 print(f"Not prime: {notprime}")
 print(f"Not prime count: {len(notprime)}")
-minnum = int(rng[0])
+minnum = chminnum
 searching = True
 while searching:
 
