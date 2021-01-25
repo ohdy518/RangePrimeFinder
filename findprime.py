@@ -1,6 +1,5 @@
-rng = input("Enter a range ([min_num] ~ [max_num]): ").split()  
-minnum = int(rng[0])
-maxnum = int(rng[2]) + 1
+minnum = int(input("Range minimum value: "))
+maxnum = int(input("Range maximum value: ")) + 1
 prime = [
     ""
 ]
