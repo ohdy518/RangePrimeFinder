@@ -7,8 +7,12 @@ while ipt:
         minnum = int(input("Range minimum value: "))
         chminnum = minnum
         maxnum = int(input("Range maximum value: ")) + 1
+
+        if minnum > maxnum:
+            print("Minimum number is bigger than maximum number.")
+            raise NotImplementedError
     except:
-        print("Please enter a number.")
+        print("Please enter a number with a correct syntax.")
     else:
         ipt = False
         break
@@ -76,26 +80,31 @@ while searching:
                 searching = False
                 break
             else:
-                print("Invalid search key.")
+                print("Invalid number.")
         else:
             try:
                 intsea = int(search)
                 index = prime.index(intsea)
                 print(f"{search} is {str(index + 1)}(th) prime.")
             except:
-                intsea = int(search)
-                notprime.index(intsea)
-                print(f"{search} is not a prime.")
-                for i in prime:
-                    if intsea % i == 0:
-                        print(f"{intsea} divides into {i}. ({intsea} / {i} = {intsea / i})")
-                for i in nnotprime:
-                    if intsea % i == 0:
-                        if i == intsea:
-                            pass
-                        else:
+                intsea = 0
+                try:
+                    intsea = int(search)
+                    notprime.index(intsea)
+                    print(f"{search} is not a prime.")
+                
+                    for i in prime:
+                        if intsea % i == 0:
                             print(f"{intsea} divides into {i}. ({intsea} / {i} = {intsea / i})")
+                    for i in nnotprime:
+                        if intsea % i == 0:
+                            if i == intsea:
+                                pass
+                            else:
+                                print(f"{intsea} divides into {i}. ({intsea} / {i} = {intsea / i})")
+                except:
+                    print(f"Entered number is either negative, 0, 1, or out of range. ")
                  
     except:
-        print("Error: Number out of range")
+        print("Error: Unknown; ")
                     
