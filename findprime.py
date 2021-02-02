@@ -1,6 +1,17 @@
-minnum = int(input("Range minimum value: "))
-chminnum = minnum
-maxnum = int(input("Range maximum value: ")) + 1
+ipt = True
+minnum = 0
+maxnum = 0
+chminnum = 0
+while ipt:
+    try:
+        minnum = int(input("Range minimum value: "))
+        chminnum = minnum
+        maxnum = int(input("Range maximum value: ")) + 1
+    except:
+        print("Please enter a number.")
+    else:
+        ipt = False
+        break
 prime = [
     ""
 ]
@@ -13,7 +24,7 @@ while minnum != maxnum:
     
     if minnum > 1 :  
 
-        for i in range(2,minnum):
+        for i in range(2, minnum):
 
             if (minnum % i) == 0:
                 notprime.append(minnum)
@@ -30,6 +41,30 @@ print(f"Not prime: {notprime}")
 print(f"Not prime count: {len(notprime)}")
 minnum = chminnum
 searching = True
+nnotprime = notprime
+a = True
+while a:
+    try:
+        del nnotprime[nnotprime.index(0)]
+    except:
+        a = False
+        break
+    else:
+        a = False
+        break
+a = True
+while a:
+    try:
+        del nnotprime[nnotprime.index(1)]
+    except:
+        a = False
+        break
+    else:
+        a = False
+        break
+for i in nnotprime:
+    if i < 0:
+        del nnotprime[nnotprime.index(i)]
 while searching:
 
     search = input("Search (or .quit to quit): ")
@@ -46,7 +81,7 @@ while searching:
             try:
                 intsea = int(search)
                 index = prime.index(intsea)
-                print(f"{search} is {str(index)}(th) prime.")
+                print(f"{search} is {str(index + 1)}(th) prime.")
             except:
                 intsea = int(search)
                 notprime.index(intsea)
@@ -54,6 +89,13 @@ while searching:
                 for i in prime:
                     if intsea % i == 0:
                         print(f"{intsea} divides into {i}. ({intsea} / {i} = {intsea / i})")
+                for i in nnotprime:
+                    if intsea % i == 0:
+                        if i == intsea:
+                            pass
+                        else:
+                            print(f"{intsea} divides into {i}. ({intsea} / {i} = {intsea / i})")
+                 
     except:
         print("Error: Number out of range")
                     
